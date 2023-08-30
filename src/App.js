@@ -1,13 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Nav from "./nav/Nav";
+import About from "./about/About";
+import Skills from "./skills/Skills";
+import Projects from "./projects/Projects";
+import Contact from "./contact/Contact";
+import "./styles/app.css";
+import Background from "./background/Background";
 
 const App = () => {
   return (
-    <div className="App">
-      <nav>He</nav>
-      <h2>Hi, my name is Jeffrey Palcone</h2>
-      <h2>And I'm a Flutter/React Developer</h2>
-      <button>Hire me</button>
-    </div>
+    <Router>
+      <Nav />
+      <Background />
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 
